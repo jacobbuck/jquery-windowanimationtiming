@@ -10,9 +10,9 @@
     	vendors = [ 'ms', 'moz', 'webkit', 'o' ],
     	i = 0;
 	for ( ; i < vendors.length && ! requestAnimationFrame; i++ ) {
-		window.requestAnimationFrame = window[vendors[i] + 'RequestAnimationFrame'];
-		window.cancelAnimationFrame  = window[vendors[i] + 'CancelAnimationFrame'] 
-		                            || window[vendors[i] + 'CancelRequestAnimationFrame'];
+		requestAnimationFrame = window[vendors[i] + 'RequestAnimationFrame'];
+		cancelAnimationFrame  = window[vendors[i] + 'CancelAnimationFrame'] 
+		                     || window[vendors[i] + 'CancelRequestAnimationFrame'];
 	}
     if ( requestAnimationFrame && cancelAnimationFrame ) {
 		function loop () {
