@@ -6,15 +6,15 @@
 (function ( window, jQuery ) {
 	var timerId,
 		requestAnimationFrame = window.requestAnimationFrame,
-    	cancelAnimationFrame  = window.cancelAnimationFrame,
-    	vendors = [ 'ms', 'moz', 'webkit', 'o' ],
-    	i = 0;
+		cancelAnimationFrame  = window.cancelAnimationFrame,
+		vendors = [ 'ms', 'moz', 'webkit', 'o' ],
+		i = 0;
 	for ( ; i < vendors.length && ! requestAnimationFrame; i++ ) {
 		requestAnimationFrame = window[vendors[i] + 'RequestAnimationFrame'];
 		cancelAnimationFrame  = window[vendors[i] + 'CancelAnimationFrame'] 
 		                     || window[vendors[i] + 'CancelRequestAnimationFrame'];
 	}
-    if ( requestAnimationFrame && cancelAnimationFrame ) {
+	if ( requestAnimationFrame && cancelAnimationFrame ) {
 		function loop () {
 			jQuery.fx.tick();
 			timerId = requestAnimationFrame( loop );
