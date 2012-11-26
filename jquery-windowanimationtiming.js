@@ -13,7 +13,7 @@
 		requestAnimationFrame = window[vendors[i] + 'RequestAnimationFrame'];
 		cancelAnimationFrame  = window[vendors[i] + 'CancelAnimationFrame'] 
 		                     || window[vendors[i] + 'CancelRequestAnimationFrame'];
-	}
+	};
 	if ( requestAnimationFrame && cancelAnimationFrame ) {
 		function loop () {
 			jQuery.fx.tick();
@@ -28,4 +28,4 @@
 			timerId = 0;
 		};
 	}
-})( window, jQuery );
+})( this, this.jQuery );
