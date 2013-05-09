@@ -11,7 +11,7 @@
 		i = 0;
 	for ( ; i < vendors.length && ! requestAnimationFrame; i++ ) {
 		requestAnimationFrame = window[vendors[i] + 'RequestAnimationFrame'];
-		cancelAnimationFrame  = window[vendors[i] + 'CancelAnimationFrame'] 
+		cancelAnimationFrame  = window[vendors[i] + 'CancelAnimationFrame']
 		                     || window[vendors[i] + 'CancelRequestAnimationFrame'];
 	};
 	if ( requestAnimationFrame && cancelAnimationFrame ) {
@@ -28,4 +28,4 @@
 			timerId = 0;
 		};
 	}
-})( this, this.jQuery );
+})( window, jQuery );
