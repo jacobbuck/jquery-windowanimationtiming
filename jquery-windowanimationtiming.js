@@ -7,25 +7,25 @@
 	var timerId,
 		requestAnimationFrame = window.requestAnimationFrame,
 		cancelAnimationFrame  = window.cancelAnimationFrame,
-		vendors = [ 'ms', 'moz', 'webkit', 'o' ],
+		vendors = [ 'moz', 'webkit' ],
 		i = 0;
 	for ( ; i < vendors.length && ! requestAnimationFrame; i++ ) {
 		requestAnimationFrame = window[vendors[i] + 'RequestAnimationFrame'];
 		cancelAnimationFrame  = window[vendors[i] + 'CancelAnimationFrame']
 		                     || window[vendors[i] + 'CancelRequestAnimationFrame'];
-	};
+	}
 	if ( requestAnimationFrame && cancelAnimationFrame ) {
 		function loop () {
 			jQuery.fx.tick();
 			timerId = requestAnimationFrame( loop );
-		};
+		}
 		jQuery.fx.timer = function( timer ) {
 			if ( timer() && jQuery.timers.push( timer ) && ! timerId )
 				timerId = requestAnimationFrame( loop );
-		};
+		}
 		jQuery.fx.stop = function() {
 			cancelAnimationFrame( timerId );
 			timerId = 0;
-		};
+		}
 	}
 })( window, jQuery );
